@@ -58,7 +58,7 @@ Hence, it follows the best practice web application standards, i.e., MVC (Model-
     ▫ Update line 8, optionsBuilder.UseSqlServer(@"Server=localhost; Database=Localdb; Trusted_Connection=true;");
       with the local machine sql configurations.
 
-    ▫ For creating the 'Subscribers' table, use the query specified in the 'SQL Query' text file.
+    ▫ For creating the 'Subscribers' table, use the query specified in the 'SQL Query Create Table' in SampleDAL project.
     
   ▪ Now, run the project.
 
