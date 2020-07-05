@@ -27,7 +27,7 @@ namespace SignupApi.Controllers
                 if (Subs.Count != 0)                                                //Check if records in table exists or not
                     return Ok(Subs);
                 else
-                    return NotFound();
+                    return BadRequest("No Record Exist...!!");
             }
             catch (Exception)
             {
