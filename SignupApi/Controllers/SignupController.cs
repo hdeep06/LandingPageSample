@@ -6,10 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SampleDAL;
 
+// Web API Controller which stores records in database (model) using POST and retrieve record using GET HTTP verbs.
 namespace SignupApi.Controllers
 {
     [Route("api/[controller]")]
-    //[ApiController]
     public class SignupController : Controller
     {
         SampleDbContext DbContext;
@@ -19,12 +19,12 @@ namespace SignupApi.Controllers
         }
         // GET: api/<controller>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get()                                      //To reterieve resullt
         {
             try
             {
                 var Subs = await DbContext.Subscribers.ToListAsync();
-                if (Subs.Count != 0)
+                if (Subs.Count != 0)                                                //Check if records in table exists or not
                     return Ok(Subs);
                 else
                     return NotFound();
@@ -38,13 +38,13 @@ namespace SignupApi.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public async Task<IActionResult> AddSubscribers(Subscribers Sub)
+        public async Task<IActionResult> AddSubscribers(Subscribers Sub)            //To store the new record
         {
             try
             {
-                if (!IsEmailExist(Sub.Email))
+                if (!IsEmailExist(Sub.Email))                                       //Check if Email already exist or not.
                 {
-                    if (ModelState.IsValid)
+                    if (ModelState.IsValid)                                         //Check if specified model state such as [Required] is valid request or not
                     {
                         DbContext.Add(Sub);
                         await DbContext.SaveChangesAsync();
@@ -63,7 +63,7 @@ namespace SignupApi.Controllers
                 throw;
             }
         }
-        private bool IsEmailExist (string Email)
+        private bool IsEmailExist (string Email)                                   //Returns the already exist email in the record
         {
             return DbContext.Subscribers.Any(e => e.Email == Email);
         }

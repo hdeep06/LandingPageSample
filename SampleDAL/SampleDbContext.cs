@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
+//SQL Server Cofiguration to connect with Database and 'Subscribers' table is mapped.
 namespace SampleDAL
 {
     public class SampleDbContext: DbContext
