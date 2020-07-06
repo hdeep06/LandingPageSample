@@ -65,6 +65,6 @@ Hence, it follows the best practice web application standards, i.e., MVC (Model-
 ► Project URLs,
 
      ▫ SignupAPI, 'http://localhost:59662/api/Signup' (to see the list of subscribers added in the database). 
-       Alternatively, use Swagger to see a more detailed version of API, 'http://localhost:59662/swagger/index.html'
+       Alternatively, use Swagger to see a more detailed version of API, 'http://localhost:59662/swagger'
 
-     ▫ LangingPage, 'http://localhost:59693/' or 'http://localhost:59693/index.html'
+     ▫ LangingPage, 'http://localhost:59693/signup.html'
