@@ -86,12 +86,12 @@
 
                         error: function (x, e) {
                             if (x.responseText === "\"Email already exist...!!\"") {
-                                $('#txtEmail').after('<span class="error" style="color:#850000;">*This email is already registered with us. Please try enter different email.</span>');
+                                $('#txtEmail').after('<span class="error" style="color:#850000;">*This email is already subscribed with us. Please enter different email.</span>');
                                 $('#txtEmail').focus();
                             }
                                 
                             if (x.responseText === undefined) {
-                                alert("Server connection lost. Please try again later.");
+                                alert("Connection to server is lost. Please try again later.");
                                 $('#modalSubscriptionForm').modal('hide');
                             }
                             console.log(x.response);
@@ -192,7 +192,7 @@
                                 <input type="email" id="txtEmail" class="form-control" placeholder="Enter Email" name="email" title="Required Valid Email, e.g., abc@xyz.com" required>
                             </div>
                             <br /><hr />
-                            <input class="btn btn-lg btn-primary btn-block" type="submit" />
+                            <input class="btn btn-lg btn-primary btn-block" type="submit" value="SUBSCRIBE"/>
                         </form>
                     </div>
                 </div>
