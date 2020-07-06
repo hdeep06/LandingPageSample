@@ -56,6 +56,8 @@
 
                 if ($("#SubscriptionForm").valid()) {
 
+                    $(".error").remove();
+
                     var name = $('#txtName').val();
                     var email = $('#txtEmail').val();
 
@@ -81,9 +83,18 @@
                             $('#modalSubscriptionForm').modal('hide');
                             $('#modalSubscribed').modal('show');
                         },
-                        error: function (x, e) {
-                            alert(x.responseText);
 
+                        error: function (x, e) {
+                            if (x.responseText === "\"Email already exist...!!\"") {
+                                $('#txtEmail').after('<span class="error" style="color:#850000;">*This email is already registered with us. Please try enter different email.</span>');
+                                $('#txtEmail').focus();
+                            }
+                                
+                            if (x.responseText === undefined) {
+                                alert("Server connection lost. Please try again later.");
+                                $('#modalSubscriptionForm').modal('hide');
+                            }
+                            console.log(x.response);
                         }
                     }
 
@@ -173,7 +184,7 @@
                         <form class="form-signin" id="SubscriptionForm">
                             <div class="form-label-group">
                                 <label for="lblName"><span style="color:#850000;">*</span>Name</label>
-                                <input type="text" id="txtName" class="form-control" placeholder="Enter Name" minlength="2" title="Name Required, Minimum 2 characters" required>
+                                <input type="text" id="txtName" class="form-control" placeholder="Enter Name" minlength="2" title="Name Required, Minimum 2 characters" required autofocus>
                             </div>
                             <br />
                             <div class="form-label-group">
