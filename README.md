@@ -1,4 +1,4 @@
-# LandingPageSample
+# Subscription Page using Web API and .NET Core
 Subscription Form
 
 This project solution consists of three projects, namely,
